@@ -1,0 +1,13 @@
+# Local Development Profile Template - Copy to application-local.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/ecom_db?createDatabaseIfNotExist=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=${DB_USERNAME:root}
+spring.datasource.password=${DB_PASSWORD:YOUR_LOCAL_MYSQL_PASSWORD}
+
+# JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+# Initial Local Admin Account
+shopora.admin.email=admin@shopora.com
+shopora.admin.password=CHANGE_ME_IN_PRODUCTION
+shopora.admin.name=Shopora Administrator
