@@ -90,35 +90,37 @@ const Navbar = () => {
             {/* Wishlist */}
             <Link
               to="/wishlist"
-              className="relative p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="relative p-2 sm:px-3 sm:py-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1.5"
               title="Wishlist"
               aria-label="Wishlist"
             >
-              <Heart className="w-5 h-5" />
-              {wishlistCount > 0 && (
-                <span className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center animate-pulse">
-                  {wishlistCount}
-                </span>
-              )}
+              <div className="relative flex items-center justify-center">
+                <Heart className="w-5 h-5 text-gray-700 dark:text-gray-200" />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1.5 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center leading-none shadow-sm">
+                    {wishlistCount}
+                  </span>
+                )}
+              </div>
             </Link>
 
-            {/* Cart Icon with count badge */}
+            {/* Cart Icon with count badge matching reference image */}
             <Link
               to="/cart"
-              className="relative flex items-center gap-2 py-2 px-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 font-semibold text-xs transition-all duration-200"
+              className="relative flex items-center gap-2 p-2 sm:px-3 sm:py-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              title="Shopping Cart"
+              aria-label="Shopping Cart"
             >
-              <div className="relative">
-                <ShoppingBag className="w-5 h-5" />
+              <div className="relative flex items-center justify-center">
+                <ShoppingBag className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                 {cart.totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1.5 -right-2 min-w-[18px] h-[18px] px-1 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none shadow-sm">
                     {cart.totalItems}
                   </span>
                 )}
               </div>
-              <span className="hidden sm:inline font-bold">
-                {cart.totalAmount > 0
-                  ? `${BRAND.currency}${Number(cart.totalAmount).toLocaleString('en-IN')}`
-                  : 'Cart'}
+              <span className="hidden sm:inline text-xs font-semibold">
+                Cart
               </span>
             </Link>
 
