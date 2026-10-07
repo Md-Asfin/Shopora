@@ -72,7 +72,7 @@ MySQL Database (ecom_db)
 ## 📂 Project Structure
 
 ```text
-D:\Java Full Stack\ecom git\
+D:\Java Full Stack\Shopora\
 ├── backend/                              # Modern Merged Backend Source of Truth
 │   ├── pom.xml
 │   └── src/
@@ -90,7 +90,7 @@ D:\Java Full Stack\ecom git\
 │           ├── application.properties   # Base properties & environment variable bindings
 │           └── application-local.properties.example # Development template
 │
-├── Frontend/                             # Modern React + Vite Frontend
+├── frontend/                             # Modern React + Vite Frontend
 │   ├── package.json
 │   ├── vite.config.js
 │   ├── tailwind.config.js
@@ -140,7 +140,7 @@ JWT_EXPIRATION_MS=86400000
 FRONTEND_URL=http://localhost:5173
 ```
 
-### Frontend Options (`Frontend/.env`):
+### Frontend Options (`frontend/.env`):
 ```properties
 VITE_API_BASE_URL=http://localhost:8080/api
 ```
@@ -151,14 +151,14 @@ VITE_API_BASE_URL=http://localhost:8080/api
 
 ### 1. Start the Backend:
 ```powershell
-cd "D:\Java Full Stack\ecom git\backend"
+cd "D:\Java Full Stack\Shopora\backend"
 mvn spring-boot:run
 ```
 *The backend will boot up at `http://localhost:8080` and seed initial product catalog and admin accounts.*
 
 ### 2. Start the Frontend:
 ```powershell
-cd "D:\Java Full Stack\ecom git\Frontend"
+cd "D:\Java Full Stack\Shopora\frontend"
 npm install
 npm run dev
 ```
@@ -210,18 +210,18 @@ Interactive Swagger UI is accessible at:
 
 Run backend tests:
 ```powershell
-cd "D:\Java Full Stack\ecom git\backend"
+cd "D:\Java Full Stack\Shopora\backend"
 mvn test
 ```
 
 Build production packages:
 ```powershell
 # Backend Build
-cd "D:\Java Full Stack\ecom git\backend"
+cd "D:\Java Full Stack\Shopora\backend"
 mvn clean package -DskipTests=false
 
 # Frontend Build
-cd "D:\Java Full Stack\ecom git\Frontend"
+cd "D:\Java Full Stack\Shopora\frontend"
 npm run build
 ```
 
