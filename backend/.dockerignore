@@ -1,0 +1,8 @@
+target/
+.git/
+.gitignore
+.idea/
+*.iml
+application-local.properties
+.env
+.env.*
