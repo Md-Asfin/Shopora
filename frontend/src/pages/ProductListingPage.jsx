@@ -50,9 +50,12 @@ const ProductListingPage = () => {
     { name: 'Nike', count: 6 },
   ];
 
+  const [apiError, setApiError] = useState(null);
+
   const fetchProducts = async () => {
     try {
       setLoading(true);
+      setApiError(null);
       const params = new URLSearchParams();
       if (queryParam) params.append('q', queryParam);
       if (categoryParam) params.append('category', categoryParam);
@@ -77,6 +80,7 @@ const ProductListingPage = () => {
       }
     } catch (err) {
       console.error('Failed to fetch product list:', err);
+      setApiError('Unable to connect to the product service. Please check your backend connection.');
     } finally {
       setLoading(false);
     }
@@ -313,6 +317,16 @@ const ProductListingPage = () => {
             {/* Product Grid */}
             {loading ? (
               <ProductGridSkeleton count={8} />
+            ) : apiError ? (
+              <div className="bg-white dark:bg-[#111827] rounded-3xl p-12 text-center border border-gray-100 dark:border-gray-800 space-y-4">
+                <p className="text-sm font-medium text-red-500 dark:text-red-400">{apiError}</p>
+                <button
+                  onClick={fetchProducts}
+                  className="py-2.5 px-6 rounded-full bg-indigo-600 text-white text-xs font-bold shadow-md hover:bg-indigo-700"
+                >
+                  Retry Loading
+                </button>
+              </div>
             ) : products.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                 {products.map((product) => (

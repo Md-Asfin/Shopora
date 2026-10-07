@@ -11,6 +11,7 @@ const HomePage = () => {
   const [deals, setDeals] = useState([]);
   const [featured, setFeatured] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [apiError, setApiError] = useState(null);
   const [heroSlide, setHeroSlide] = useState(0);
 
   // Countdown timer for Today's Deals (matching Screen 1)
@@ -32,22 +33,25 @@ const HomePage = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setApiError(null);
+      const [dealsRes, featuredRes] = await Promise.all([
+        api.get('/products/deals'),
+        api.get('/products/featured'),
+      ]);
+      setDeals(dealsRes.data || []);
+      setFeatured(featuredRes.data || []);
+    } catch (err) {
+      console.error('Failed to load home page products:', err);
+      setApiError('Unable to connect to the Shopora backend API. Please check server connectivity.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const [dealsRes, featuredRes] = await Promise.all([
-          api.get('/products/deals').catch(() => ({ data: [] })),
-          api.get('/products/featured').catch(() => ({ data: [] })),
-        ]);
-        setDeals(dealsRes.data || []);
-        setFeatured(featuredRes.data || []);
-      } catch (err) {
-        console.error('Failed to load home page products:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchData();
   }, []);
 
@@ -242,6 +246,16 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {loading ? (
               Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
+            ) : apiError ? (
+              <div className="col-span-full text-center py-8 px-4 bg-white/60 dark:bg-gray-800/40 rounded-2xl border border-gray-100 dark:border-gray-800">
+                <p className="text-sm font-medium text-red-500 dark:text-red-400 mb-3">{apiError}</p>
+                <button
+                  onClick={fetchData}
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow-sm transition-all"
+                >
+                  Retry Connection
+                </button>
+              </div>
             ) : deals.length > 0 ? (
               deals.slice(0, 4).map((product) => (
                 <ProductCard key={product.id} product={product} />
@@ -275,6 +289,16 @@ const HomePage = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {loading ? (
             Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
+          ) : apiError ? (
+            <div className="col-span-full text-center py-10 px-4 bg-white dark:bg-[#111827] rounded-2xl border border-gray-100 dark:border-gray-800">
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">{apiError}</p>
+              <button
+                onClick={fetchData}
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow-sm transition-all"
+              >
+                Retry Loading Products
+              </button>
+            </div>
           ) : featured.length > 0 ? (
             featured.slice(0, 8).map((product) => (
               <ProductCard key={product.id} product={product} />
