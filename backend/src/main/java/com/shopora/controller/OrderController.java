@@ -35,7 +35,7 @@ public class OrderController {
         return new ResponseEntity<>(ApiResponse.success("Order placed successfully", response), HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping({"", "/my-orders"})
     @Operation(summary = "Get order history for authenticated user (optionally filtered by status)")
     public ResponseEntity<ApiResponse<List<OrderResponse>>> getUserOrders(
             @AuthenticationPrincipal UserPrincipal principal,

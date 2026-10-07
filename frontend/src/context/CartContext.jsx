@@ -125,6 +125,10 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const getCartSubtotal = () => {
+    return cart?.subtotal || cart?.items?.reduce((acc, item) => acc + ((item.price || 0) * (item.quantity || 1)), 0) || 0;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -135,6 +139,7 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         clearCart,
         fetchCart,
+        getCartSubtotal,
       }}
     >
       {children}
