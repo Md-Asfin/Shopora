@@ -6,9 +6,9 @@ All notable changes to the Shopora e-commerce ecosystem are documented in this f
 
 ## [1.0.0] - 2026-10-06
 
-### Initial Audit & Inspection
-- Audited `Backend 1` (Spring Boot 3.3.4, H2 in-memory DB, `imageDate` spelling bug, direct entity exposure) and `Backend 2` (Spring Boot 3.3.4, PostgreSQL, missing JWT security, no DTO layer, direct entity exposure).
-- Preserved both `Backend 1` and `Backend 2` as read-only reference implementations.
+### Initial Architecture & Inspection
+- Audited legacy reference implementations (Spring Boot 3.3.4, missing JWT security, no DTO layer, direct entity exposure).
+- Established unified Spring Boot backend in `backend/` with package `com.shopora`.
 
 ### Backend Merge & Architecture
 - Initialized clean monolithic backend at `backend/` under package `com.shopora`.

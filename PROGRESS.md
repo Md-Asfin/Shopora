@@ -1,6 +1,6 @@
 # Shopora Modernization Progress
 
-- [x] Phase 1 — Initial scan & audit of Backend 1, Backend 2, and Frontend
+- [x] Phase 1 — Initial scan & audit of initial reference architectures and Frontend
 - [x] Phase 2 — Architecture report & requirement analysis
 - [x] Phase 3 — Backend comparison & divergence analysis
 - [x] Phase 4 — Create merged clean backend in `backend/` with package `com.shopora`

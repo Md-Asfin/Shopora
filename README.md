@@ -72,7 +72,7 @@ MySQL Database (ecom_db)
 ## 📂 Project Structure
 
 ```text
-D:\Java Full Stack\Shopora\
+Shopora\
 ├── backend/                              # Modern Merged Backend Source of Truth
 │   ├── pom.xml
 │   └── src/
@@ -101,8 +101,6 @@ D:\Java Full Stack\Shopora\
 │       ├── services/                    # Axios API Client & Endpoint Wrappers
 │       └── App.jsx                      # Routing & Protected Route Guards
 │
-├── Backend 1/                            # [READ-ONLY] Original Reference 1 (H2)
-├── Backend 2/                            # [READ-ONLY] Original Reference 2 (PostgreSQL)
 ├── CHANGELOG.md                          # Record of all migrations & bug fixes
 ├── PROGRESS.md                           # Phase tracking checklist
 └── README.md                             # Documentation
