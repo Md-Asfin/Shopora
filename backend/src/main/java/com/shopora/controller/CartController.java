@@ -43,9 +43,16 @@ public class CartController {
     public ResponseEntity<ApiResponse<CartResponse>> updateItemQuantity(
             @AuthenticationPrincipal UserPrincipal principal,
             @PathVariable Long itemId,
-            @RequestParam int quantity
+            @RequestParam(required = false) Integer quantity,
+            @RequestBody(required = false) java.util.Map<String, Object> body
     ) {
-        CartResponse cart = cartService.updateQuantity(principal.getId(), itemId, quantity);
+        int qty = 1;
+        if (quantity != null) {
+            qty = quantity;
+        } else if (body != null && body.containsKey("quantity")) {
+            qty = Integer.parseInt(body.get("quantity").toString());
+        }
+        CartResponse cart = cartService.updateQuantity(principal.getId(), itemId, qty);
         return ResponseEntity.ok(ApiResponse.success("Cart updated", cart));
     }
 
