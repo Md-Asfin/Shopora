@@ -149,14 +149,14 @@ VITE_API_BASE_URL=http://localhost:8080/api
 
 ### 1. Start the Backend:
 ```powershell
-cd "D:\Java Full Stack\Shopora\backend"
+cd backend
 mvn spring-boot:run
 ```
 *The backend will boot up at `http://localhost:8080` and seed initial product catalog and admin accounts.*
 
 ### 2. Start the Frontend:
 ```powershell
-cd "D:\Java Full Stack\Shopora\frontend"
+cd frontend
 npm install
 npm run dev
 ```
@@ -208,18 +208,18 @@ Interactive Swagger UI is accessible at:
 
 Run backend tests:
 ```powershell
-cd "D:\Java Full Stack\Shopora\backend"
+cd backend
 mvn test
 ```
 
 Build production packages:
 ```powershell
 # Backend Build
-cd "D:\Java Full Stack\Shopora\backend"
+cd backend
 mvn clean package -DskipTests=false
 
 # Frontend Build
-cd "D:\Java Full Stack\Shopora\frontend"
+cd frontend
 npm run build
 ```
 
