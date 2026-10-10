@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#2563EB"/>
-  <path d="M10 11L12 7H20L22 11H10Z" fill="white" opacity="0.8"/>
-  <path d="M8 11H24L22.5 24C22.5 25.1 21.6 26 20.5 26H11.5C10.4 26 9.5 25.1 9.5 24L8 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M13 14V17C13 18.66 14.34 20 16 20C17.66 20 19 18.66 19 17V14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <title>Shopora</title>
+  <rect width="32" height="32" rx="8" fill="#4F46E5"/>
+  <!-- Shopping bag body -->
+  <path d="M8 13.5C8 12.67 8.67 12 9.5 12H22.5C23.33 12 24 12.67 24 13.5L22.5 25.5C22.5 26.33 21.83 27 21 27H11C10.17 27 9.5 26.33 9.5 25.5L8 13.5Z" fill="white"/>
+  <!-- Shopping bag handle -->
+  <path d="M13 12C13 9.79 14.34 8 16 8C17.66 8 19 9.79 19 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small sparkle accent -->
+  <circle cx="25" cy="7" r="2.5" fill="#A5B4FC"/>
+  <path d="M25 5V9M23 7H27" stroke="#4F46E5" stroke-width="1" stroke-linecap="round"/>
 </svg>
