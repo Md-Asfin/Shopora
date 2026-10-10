@@ -151,18 +151,7 @@ function HeroCarousel() {
             </Link>
           </div>
         </div>
-      ) : (
-        /* CTA-only overlay for the banner that has built-in headline text */
-        <div className="absolute inset-0 flex flex-col justify-end px-8 sm:px-14 pb-10 bg-gradient-to-t from-black/40 via-transparent to-transparent">
-          <Link
-            to={slide.href}
-            className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition active:scale-95 self-start"
-          >
-            {slide.cta}
-            <ArrowRight size={15} />
-          </Link>
-        </div>
-      )}
+      ) : null}
 
       {/* Prev / Next arrows */}
       <button
